@@ -1,0 +1,38 @@
+<div class='container'>
+  <div class="jumbotron">
+    <div class="btn-group text-left margin-top-14">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Download Our Directory <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="/mall/1/download_as_txt.txt">Text</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="/mall/1/download_as_csv.csv">CSV</a></li>
+      </ul>
+    </div>
+    <button class="btn btn-primary add-shop-btn" id='add-shop'>Add New Shop</button>
+    <button class="btn btn-primary upload-directory-btn" id='upload-directory-btn'>Upload Directory</button>
+    <div class='clearfix'></div>
+    <table class="table white-background">
+      <thead>
+        <tr>
+          <th>Shop Name</th>
+          <th>Location</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @mall.shops.find_each do |shop| %>
+          <%= render partial: '/shops/render_shop', locals: { shop: shop } %>
+        <% end %>  
+      </tbody>
+
+    </table>
+  </div>
+</div>
+<%= render partial: 'edit_dialog' %>
+<%= render partial: 'new_shop_dialog' %>
+<%= render partial: 'upload_directory' %>
+
+
+

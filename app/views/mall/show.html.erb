@@ -1,0 +1,119 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Falcon Agency Mall</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Search...">
+      </form>
+    </div>
+  </div>
+</nav>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <%= image_tag 'cover.jpg', height: '350', width: '1285' %>
+  <!-- Single button -->
+  <div class="btn-group text-left margin-left-68 margin-top-36">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Download Our Directory <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="/mall/1/download_as_txt.txt">Text</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="/mall/1/download_as_csv.csv">CSV</a></li>
+    </ul>
+  </div>
+  <%= link_to 'Manage Directory', manage_mall_path(@mall), class: 'btn btn-primary manage-directory-btn margin-top-36' %>
+</div>
+<div id="sticker-sticky-wrapper" class="sticky-wrapper"><div id="sticker" style="">
+    <div id="subNav-alphabet">
+      <div id="subWrap" class="clearfix">
+        <ul class="clearfix" id="subDrop">
+  
+          <li><a href="#other" class="">#</a></li>
+      
+          <li><a href="#A" class="">A</a></li>
+      
+          <li><a href="#B" class="">B</a></li>
+      
+          <li><a href="#C" class="">C</a></li>
+      
+          <li><a href="#D" class="">D</a></li>
+      
+          <li><a href="#E" class="">E</a></li>
+      
+          <li><a href="#F" class="">F</a></li>
+      
+          <li><a href="#G" class="">G</a></li>
+      
+          <li><a href="#H" class="">H</a></li>
+      
+          <li><a href="#I">I</a></li>
+      
+          <li><a href="#J" class="">J</a></li>
+      
+          <li><a href="#K" class="">K</a></li>
+      
+          <li><a href="#L" class="">L</a></li>
+      
+          <li><a href="#M">M</a></li>
+      
+          <li><a href="#N" class="">N</a></li>
+      
+          <li><a href="#O">O</a></li>
+      
+          <li><a href="#P" class="">P</a></li>
+      
+          <li><a href="#Q">Q</li>
+      
+          <li><a href="#R">R</a></li>
+      
+          <li><a href="#S" class="">S</a></li>
+      
+          <li><a href="#T" class="">T</a></li>
+      
+          <li><a href="#U" class="">U</a></li>
+      
+          <li><a href="#V">V</a></li>
+      
+          <li><a href="#W">W</a></li>
+      
+          <li><a href="#X">X</a></li>
+      
+          <li><a href="#Y">Y</a></li>
+      
+          <li><a href="#Z" class="">Z</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class='container'>
+  <% ("A".."Z").each do |prefix| %>
+    <% shops_by_prefix = @mall.shops.get_by_alphabet(prefix) %>
+    <% if shops_by_prefix.any? %>
+      <h6><%= prefix %></h6>
+      <ul class="list-group" id="<%= prefix %>">
+        <% shops_by_prefix.each do |shop| %>
+          <li class="list-group-item">
+            <dl class="dl-horizontal">
+              <dt>Name</dt>
+              <dd><%= shop.name %></dd>
+              <dt>Location</dt>
+              <dd><%= shop.location %></dd>
+            </dl>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>  
+</div>

@@ -1,0 +1,26 @@
+<div class="modal fade" id='edit_shop'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Edit Shop Information</h4>
+      </div>
+      <%= form_tag '', method: :patch, remote: true, id: 'edit-form' do %>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="shop[name]" class="form-control" id="name" placeholder="Name" required='required'>
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" name="shop[location]" class="form-control" id="location" placeholder="Location" required='required'>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= submit_tag "Update", class: "btn btn-primary" %>
+        </div>
+      <% end %>  
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>

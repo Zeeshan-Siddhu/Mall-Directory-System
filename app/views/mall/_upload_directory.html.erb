@@ -1,0 +1,23 @@
+<div class="modal fade" id='upload_directory'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Upload Directory</h4>
+      </div>
+      <%= form_tag upload_directory_mall_path(@mall), method: :patch, multipart: true do %>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" name='file' id="exampleInputFile" required='required'>
+            <p class="help-block">Upload .txt file.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= submit_tag "Add", class: "btn btn-primary" %>
+        </div>
+      <% end %>  
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,6 @@
+<% if @shop.persisted? %>
+  $('#new_shop').modal('hide');
+  $("tr:last").after("<%= escape_javascript(render partial: '/shops/render_shop', locals: { shop: @shop }) %>")
+<% else %>
+  alert('Enter valid Information');
+<% end %>  
