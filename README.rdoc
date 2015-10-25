@@ -1,28 +1,10 @@
 == README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Follow these steps to run on local machine
+Steps:
+    1)Install Ruby,  Bundler, PostgreSql, Node.js
+    2)cd to my project directory.
+    3)bundle
+    4)rake db:create
+    5)rake db:migrate
+    6)rake db:seed
+    6)rails s

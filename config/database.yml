@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: mall_directory_system_production
-  username: mall_directory_system
-  password: <%= ENV['MALL_DIRECTORY_SYSTEM_DATABASE_PASSWORD'] %>
