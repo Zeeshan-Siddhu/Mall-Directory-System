@@ -98,11 +98,12 @@
 
 
 <div class='container'>
-  <% ("A".."Z").each do |prefix| %>
+
+  <% (['#'] + ("A".."Z").to_a).each do |prefix| %>
     <% shops_by_prefix = @mall.shops.get_by_alphabet(prefix) %>
     <% if shops_by_prefix.any? %>
       <h6><%= prefix %></h6>
-      <ul class="list-group" id="<%= prefix %>">
+      <ul class="list-group" id="<%= prefix == '#' ? 'other' : prefix %>">
         <% shops_by_prefix.each do |shop| %>
           <li class="list-group-item">
             <dl class="dl-horizontal">
